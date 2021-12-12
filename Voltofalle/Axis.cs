@@ -10,15 +10,11 @@ namespace Voltofalle
     class Axis
     {
         public List<Field> fields;
-        public int points;
-        public int bombs;
 
         public Axis()
         {
             // Initiate variables
             this.fields = new List<Field>();
-            this.points = 0;
-            this.bombs = 0;
         }
 
         public int readAxis(List<TextBox> IOBoxesAxis)

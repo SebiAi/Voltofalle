@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Axis.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Voltofalle.cs">
       <SubType>Form</SubType>

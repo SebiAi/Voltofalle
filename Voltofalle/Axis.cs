@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Voltofalle
 {
@@ -18,12 +19,21 @@ namespace Voltofalle
             this.fields = new List<Field>();
             this.points = 0;
             this.bombs = 0;
+        }
 
-            // Add all 7 Fields
-            for (int i = 0; i < 7; i++)
+        public int readAxis(List<TextBox> IOBoxesAxis)
+        {
+            int i = 0;
+            foreach (TextBox textBox in IOBoxesAxis)
             {
-                fields.Add(new Field());
+                Field field = new Field();
+                if (field.readField(textBox, (i >= 5) ? true : false) != 0)
+                {
+                    return 1;
+                }
+                i++;
             }
+            return 0;
         }
     }
 }

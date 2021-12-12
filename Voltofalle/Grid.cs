@@ -11,16 +11,24 @@ namespace Voltofalle
     {
         public List<Axis> rows;
 
-        Grid(List<List<TextBox>> IOBoxes)
+        public Grid()
         {
             // Initialize Rows
             this.rows = new List<Axis>();
+        }
 
-            // Add all 7 rows with input values
-            for (int row = 0; row < 7; row++)
+        public int readValues(List<List<TextBox>> IOBoxes)
+        {
+            // Read all 7 rows
+            foreach (List<TextBox> IOBoxesRow in IOBoxes)
             {
-                rows.Add(new Axis());
+                Axis axis = new Axis();
+                if (axis.readAxis(IOBoxesRow) != 0)
+                {
+                    return 1;
+                }
             }
+            return 0;
         }
     }
 }

@@ -242,56 +242,6 @@ namespace Voltofalle
         //    return sum;
         //}
 
-        //private int SumOfRow(int row)
-        //{
-        //    int sum = 0;
-        //    for (int i = 0; i < 5; i++)
-        //    {
-        //        switch (allValues[row, i])
-        //        {
-        //            case 2:
-        //                sum += 2;
-        //                break;
-        //            case 3:
-        //                sum += 3;
-        //                break;
-        //            default:
-        //                sum++;
-        //                break;
-        //        }
-        //    }
-        //    return sum;
-        //}
-
-        //private int SumOfColumn(int column)
-        //{
-        //    int sum = 0;
-        //    for (int i = 0; i < 5; i++)
-        //    {
-        //        switch (allValues[i, column])
-        //        {
-        //            case 2:
-        //                sum += 2;
-        //                break;
-        //            case 3:
-        //                sum += 3;
-        //                break;
-        //            default:
-        //                sum++;
-        //                break;
-        //        }
-        //    }
-        //    return sum;
-        //}
-
-        //private bool SkipConversion(int row, int column)
-        //{
-        //    if ((row == 5 || row == 6) && (column == 5 || column == 6))
-        //        return true;
-        //    else
-        //        return false;
-        //}
-
         private void ClearAll_Click(object sender, EventArgs e)
         {
             //DefineIOBoxes();

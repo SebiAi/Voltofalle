@@ -220,249 +220,151 @@ namespace Voltofalle
         //    return 0;
         //}
 
-        private void ProcessDeadRows()
-        {
-            for (int row = 0, column = 0; row < 5; row++, column++)
-            {
-                // Check for row
-                if (allValues[row, 5] + allValues[row, 6] == SumOfRow(row) || allValues[row, 6] == 0)
-                {
-                    // Set whole row to X
-                    for (int tmpColumn = 0; tmpColumn < 5; tmpColumn++)
-                    {
-                        if (allValues[row, tmpColumn] == valueDot && allValues[row, 6] > 0)
-                            allValues[row, tmpColumn] = valueX;
-                        else if (allValues[row, tmpColumn] == valueDot && allValues[row, 6] == 0)
-                            allValues[row, tmpColumn] = valueHashtag;
-                    }
-                }
+        //private void ProcessDeadRows()
+        //{
+        //    for (int row = 0, column = 0; row < 5; row++, column++)
+        //    {
+        //        // Check for row
+        //        if (allValues[row, 5] + allValues[row, 6] == SumOfRow(row) || allValues[row, 6] == 0)
+        //        {
+        //            // Set whole row to X
+        //            for (int tmpColumn = 0; tmpColumn < 5; tmpColumn++)
+        //            {
+        //                if (allValues[row, tmpColumn] == valueDot && allValues[row, 6] > 0)
+        //                    allValues[row, tmpColumn] = valueX;
+        //                else if (allValues[row, tmpColumn] == valueDot && allValues[row, 6] == 0)
+        //                    allValues[row, tmpColumn] = valueHashtag;
+        //            }
+        //        }
 
-                // Check for column
-                if (allValues[5, column] + allValues[6, column] == SumOfColumn(row) || allValues[6, column] == 0)
-                {
-                    // Set whole column to X
-                    for (int tmpRow = 0; tmpRow < 5; tmpRow++)
-                    {
-                        if (allValues[tmpRow, column] == valueDot && allValues[6, column] > 0)
-                            allValues[tmpRow, column] = valueX;
-                        else if (allValues[tmpRow, column] == valueDot && allValues[6, column] == 0)
-                            allValues[tmpRow, column] = valueHashtag;
-                    }
-                }
+        //        // Check for column
+        //        if (allValues[5, column] + allValues[6, column] == SumOfColumn(row) || allValues[6, column] == 0)
+        //        {
+        //            // Set whole column to X
+        //            for (int tmpRow = 0; tmpRow < 5; tmpRow++)
+        //            {
+        //                if (allValues[tmpRow, column] == valueDot && allValues[6, column] > 0)
+        //                    allValues[tmpRow, column] = valueX;
+        //                else if (allValues[tmpRow, column] == valueDot && allValues[6, column] == 0)
+        //                    allValues[tmpRow, column] = valueHashtag;
+        //            }
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        private int SumOfDotsRow(int row)
-        {
-            int sum = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                if (allValues[row, i] == valueDot || allValues[row, i] == valueHashtag)
-                    sum++;
-            }
-            return sum;
-        }
+        //private int SumOfDotsRow(int row)
+        //{
+        //    int sum = 0;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        if (allValues[row, i] == valueDot || allValues[row, i] == valueHashtag)
+        //            sum++;
+        //    }
+        //    return sum;
+        //}
 
-        private int SumOfDotsColumn(int column)
-        {
-            int sum = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                if (allValues[i, column] == valueDot || allValues[i, column] == valueHashtag)
-                    sum++;
-            }
-            return sum;
-        }
+        //private int SumOfDotsColumn(int column)
+        //{
+        //    int sum = 0;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        if (allValues[i, column] == valueDot || allValues[i, column] == valueHashtag)
+        //            sum++;
+        //    }
+        //    return sum;
+        //}
 
-        private int SumOfRow(int row)
-        {
-            int sum = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                switch (allValues[row, i])
-                {
-                    case 2:
-                        sum += 2;
-                        break;
-                    case 3:
-                        sum += 3;
-                        break;
-                    default:
-                        sum++;
-                        break;
-                }
-            }
-            return sum;
-        }
+        //private int SumOfRow(int row)
+        //{
+        //    int sum = 0;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        switch (allValues[row, i])
+        //        {
+        //            case 2:
+        //                sum += 2;
+        //                break;
+        //            case 3:
+        //                sum += 3;
+        //                break;
+        //            default:
+        //                sum++;
+        //                break;
+        //        }
+        //    }
+        //    return sum;
+        //}
 
-        private int SumOfColumn(int column)
-        {
-            int sum = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                switch (allValues[i, column])
-                {
-                    case 2:
-                        sum += 2;
-                        break;
-                    case 3:
-                        sum += 3;
-                        break;
-                    default:
-                        sum++;
-                        break;
-                }
-            }
-            return sum;
-        }
+        //private int SumOfColumn(int column)
+        //{
+        //    int sum = 0;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        switch (allValues[i, column])
+        //        {
+        //            case 2:
+        //                sum += 2;
+        //                break;
+        //            case 3:
+        //                sum += 3;
+        //                break;
+        //            default:
+        //                sum++;
+        //                break;
+        //        }
+        //    }
+        //    return sum;
+        //}
 
-        private int ReadTextBoxes()
-        {
-            for (int row = 0; row < 7; row++)
-            {
-                for (int column = 0; column < 7; column++)
-                {
-                    int value = 0;
-                    bool skipRead = false;
-
-                    // Need to skip?
-                    skipRead = SkipConversion(row, column);
-
-                    if (!skipRead)
-                    {
-                        try
-                        {
-                            // Try convert to number
-                            value = Convert.ToUInt16(IOBoxes[row, column].Text);
-                        }
-                        catch
-                        {
-                            // On error convert symbol to number
-                            if (IOBoxes[row, column].Text != "")
-                            {
-                                switch (IOBoxes[row, column].Text[0])
-                                {
-                                    case 'X':
-                                        value = valueX;
-                                        break;
-                                    case 'B':
-                                        value = valueB;
-                                        break;
-                                    case '#':
-                                        value = valueHashtag;
-                                        break;
-                                    default:
-                                        value = valueDot;
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                // Is input?
-                                if (row == 5 || row == 6 || column == 5 || column == 6)
-                                {
-                                    MessageBox.Show(this, "Inputs can't be empty!", messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return 1;
-                                }
-                                value = valueDot;
-                            }
-                        }
-
-                        allValues[row, column] = value;
-                    }                    
-                }
-            }
-            return 0;
-        }
-
-        private void WriteTextBoxes()
-        {
-            for (int row = 0; row < 7; row++)
-            {
-                for (int column = 0; column < 7; column++)
-                {
-                    string value = ".";
-                    bool skipWrite = false;
-
-                    // Need to skip?
-                    skipWrite = SkipConversion(row, column);
-
-                    if (!skipWrite)
-                    {
-                        switch(allValues[row, column])
-                        {
-                            case valueX:
-                                value = "X";
-                                break;
-                            case valueB:
-                                value = "B";
-                                break;
-                            case valueHashtag:
-                                value = "#";
-                                break;
-                            case valueDot:
-                                value = ".";
-                                break;
-                            default:
-                                value = allValues[row, column].ToString();
-                                break;
-                        }
-
-                        IOBoxes[row, column].Text = value;
-                    }
-                }
-            }
-        }
-
-        private bool SkipConversion(int row, int column)
-        {
-            if ((row == 5 || row == 6) && (column == 5 || column == 6))
-                return true;
-            else
-                return false;
-        }
+        //private bool SkipConversion(int row, int column)
+        //{
+        //    if ((row == 5 || row == 6) && (column == 5 || column == 6))
+        //        return true;
+        //    else
+        //        return false;
+        //}
 
         private void ClearAll_Click(object sender, EventArgs e)
         {
-            DefineIOBoxes();
-            for (int row = 0; row < 7; row++)
-            {
-                for (int column = 0; column < 7; column++)
-                {
-                    string value = "";
-                    bool skipClear = false;
+            //DefineIOBoxes();
+            //for (int row = 0; row < 7; row++)
+            //{
+            //    for (int column = 0; column < 7; column++)
+            //    {
+            //        string value = "";
+            //        bool skipClear = false;
 
-                    // Need to skip?
-                    skipClear = SkipConversion(row, column);
+            //        // Need to skip?
+            //        skipClear = SkipConversion(row, column);
 
-                    if (!skipClear)
-                    {
-                        IOBoxes[row, column].Text = value;
-                    }
-                }
-            }
+            //        if (!skipClear)
+            //        {
+            //            IOBoxes[row, column].Text = value;
+            //        }
+            //    }
+            //}
         }
 
         private void ClearOutput_Click(object sender, EventArgs e)
         {
-            DefineIOBoxes();
-            for (int row = 0; row < 5; row++)
-            {
-                for (int column = 0; column < 5; column++)
-                {
-                    string value = "";
-                    bool skipClear = false;
+            //DefineIOBoxes();
+            //for (int row = 0; row < 5; row++)
+            //{
+            //    for (int column = 0; column < 5; column++)
+            //    {
+            //        string value = "";
+            //        bool skipClear = false;
 
-                    // Need to skip?
-                    skipClear = SkipConversion(row, column);
+            //        // Need to skip?
+            //        skipClear = SkipConversion(row, column);
 
-                    if (!skipClear)
-                    {
-                        IOBoxes[row, column].Text = value;
-                    }
-                }
-            }
+            //        if (!skipClear)
+            //        {
+            //            IOBoxes[row, column].Text = value;
+            //        }
+            //    }
+            //}
         }
     }
 }

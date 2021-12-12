@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +45,54 @@ namespace Voltofalle
                 axis.outputAxis(IOBoxes[i]);
                 i++;
             }
+        }
+
+        public int calculate()
+        {
+            // Check if row/column is 1 or Bomb
+            ProcessDeadRows();
+            return 0;
+        }
+
+        private void ProcessDeadRows()
+        {
+            int columnCounter = 0;
+            foreach (Axis row in rows)
+            {
+                if (row.isInput)
+                    continue;
+                // Check for row
+                ProcessDeadRowsHelper(row);
+                
+
+                // Check for column
+                Axis column = GetColumn(columnCounter);
+                ProcessDeadRowsHelper(column);
+
+                columnCounter++;
+            }
+        }
+
+        private void ProcessDeadRowsHelper(Axis axis)
+        {
+            if (axis.GetPoints() + axis.GetBombs() == axis.CalculateSum() || axis.GetPoints() == 0 || axis.GetBombs() == 0)
+            {
+                axis.SetCurrentValueAxis();
+            }
+        }
+
+        public Axis GetColumn(int n)
+        {
+            Axis column = new Axis(false);
+            if (n >= 5)
+                return column;
+            
+            foreach (Axis row in rows)
+            {
+                column.fields.Add(row.fields[n]);
+            }
+
+            return column;
         }
     }
 }

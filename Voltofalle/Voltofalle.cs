@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -115,8 +115,8 @@ namespace Voltofalle
                 return;
 
             // Do calculation stuff
-            //if (DoCalculation() != 0)
-            //    return;
+            if (Voltofalle.calculate() != 0)
+                return;
 
             // Write textBoxes
             Voltofalle.outputValues();
@@ -218,39 +218,6 @@ namespace Voltofalle
         //    }
 
         //    return 0;
-        //}
-
-        //private void ProcessDeadRows()
-        //{
-        //    for (int row = 0, column = 0; row < 5; row++, column++)
-        //    {
-        //        // Check for row
-        //        if (allValues[row, 5] + allValues[row, 6] == SumOfRow(row) || allValues[row, 6] == 0)
-        //        {
-        //            // Set whole row to X
-        //            for (int tmpColumn = 0; tmpColumn < 5; tmpColumn++)
-        //            {
-        //                if (allValues[row, tmpColumn] == valueDot && allValues[row, 6] > 0)
-        //                    allValues[row, tmpColumn] = valueX;
-        //                else if (allValues[row, tmpColumn] == valueDot && allValues[row, 6] == 0)
-        //                    allValues[row, tmpColumn] = valueHashtag;
-        //            }
-        //        }
-
-        //        // Check for column
-        //        if (allValues[5, column] + allValues[6, column] == SumOfColumn(row) || allValues[6, column] == 0)
-        //        {
-        //            // Set whole column to X
-        //            for (int tmpRow = 0; tmpRow < 5; tmpRow++)
-        //            {
-        //                if (allValues[tmpRow, column] == valueDot && allValues[6, column] > 0)
-        //                    allValues[tmpRow, column] = valueX;
-        //                else if (allValues[tmpRow, column] == valueDot && allValues[6, column] == 0)
-        //                    allValues[tmpRow, column] = valueHashtag;
-        //            }
-        //        }
-
-        //    }
         //}
 
         //private int SumOfDotsRow(int row)

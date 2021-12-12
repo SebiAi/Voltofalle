@@ -10,14 +10,16 @@ namespace Voltofalle
     class Grid
     {
         public List<Axis> rows;
+        private List<List<TextBox>> IOBoxes;
 
-        public Grid()
+        public Grid(List<List<TextBox>> IOBoxes)
         {
-            // Initialize Rows
+            // Initialize
+            this.IOBoxes = IOBoxes;
             this.rows = new List<Axis>();
         }
 
-        public int readValues(List<List<TextBox>> IOBoxes)
+        public int readValues()
         {
             // Read all 7 rows
             foreach (List<TextBox> IOBoxesRow in IOBoxes)

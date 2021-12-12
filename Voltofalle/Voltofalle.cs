@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -110,78 +110,9 @@ namespace Voltofalle
         private void ButtonCalc_Click(object sender, EventArgs e)
         {
             // Init grid and read TextBoxes
-            Grid Voltofalle = new Grid();
-            Voltofalle.readValues(IOBoxes);
-
-            // Debug overrides
-            #region Simple
-            //allValues = new int[,]
-            //{
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 8, 0 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 1, 4 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 4, 1 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 6, 0 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 6, 1 },
-            //    { 6, 3, 6, 4, 6, 0, 0 },
-            //    { 1, 2, 1, 1, 1, 0, 0 }
-            //};
-            //allValues = new int[,]
-            //{
-            //    { 1, 1, 2, 1, 3, 8, 0 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 1, 4 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 4, 1 },
-            //    { 2, 1, 1, 1, 1, 6, 0 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 6, 1 },
-            //    { 6, 3, 6, 4, 6, 0, 0 },
-            //    { 1, 2, 1, 1, 1, 0, 0 }
-            //};
-            #endregion
-
-            #region No Calc possible - i think
-            //allValues = new int[,]
-            //{
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 3, 2 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 6, 2 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 6, 1 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 3, 2 },
-            //    { 1, 1, 3, 1, 1, 7, 0 },
-            //    { 4, 5, 8, 5, 3, 0, 0 },
-            //    { 1, 1, 1, 2, 2, 0, 0 }
-            //};
-            //allValues = new int[,]
-            //{
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 3, 2 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 6, 2 },
-            //    { valueDot, valueDot, 3, valueDot, valueDot, 6, 1 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 3, 2 },
-            //    { 1, 1, 3, 1, 1, 7, 0 },
-            //    { 4, 5, 8, 5, 3, 0, 0 },
-            //    { 1, 1, 1, 2, 2, 0, 0 }
-            //};
-            #endregion
-
-            #region Do Stuff
-            //allValues = new int[,]
-            //{
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 5, 1 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 5, 2 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 2, 3 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 8, 1 },
-            //    { valueDot, valueDot, valueDot, valueDot, valueDot, 5, 1 },
-            //    { 6, 7, 5, 6, 1, 0, 0 },
-            //    { 2, 0, 1, 1, 4, 0, 0 }
-            //};
-            allValues = new int[,]
-            {
-                { valueDot, 1, valueDot, valueDot, valueDot, 5, 1 },
-                { valueDot, 1, valueDot, valueDot, valueDot, 5, 2 },
-                { valueDot, 1, valueDot, valueDot, valueDot, 2, 3 },
-                { valueDot, 3, valueDot, valueDot, valueDot, 8, 1 },
-                { valueDot, 1, valueDot, valueDot, valueDot, 5, 1 },
-                { 6, 7, 5, 6, 1, 0, 0 },
-                { 2, 0, 1, 1, 4, 0, 0 }
-            };
-            #endregion
+            Grid Voltofalle = new Grid(IOBoxes);
+            if (Voltofalle.readValues() != 0)
+                return;
 
             // Do calculation stuff
             //if (DoCalculation() != 0)

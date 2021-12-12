@@ -244,44 +244,32 @@ namespace Voltofalle
 
         private void ClearAll_Click(object sender, EventArgs e)
         {
-            //DefineIOBoxes();
-            //for (int row = 0; row < 7; row++)
-            //{
-            //    for (int column = 0; column < 7; column++)
-            //    {
-            //        string value = "";
-            //        bool skipClear = false;
-
-            //        // Need to skip?
-            //        skipClear = SkipConversion(row, column);
-
-            //        if (!skipClear)
-            //        {
-            //            IOBoxes[row, column].Text = value;
-            //        }
-            //    }
-            //}
+            foreach (List<TextBox> textBoxesRow in IOBoxes)
+            {
+                foreach (TextBox textBox in textBoxesRow)
+                {
+                    textBox.Text = "";
+                }
+            }
         }
 
         private void ClearOutput_Click(object sender, EventArgs e)
         {
-            //DefineIOBoxes();
-            //for (int row = 0; row < 5; row++)
-            //{
-            //    for (int column = 0; column < 5; column++)
-            //    {
-            //        string value = "";
-            //        bool skipClear = false;
-
-            //        // Need to skip?
-            //        skipClear = SkipConversion(row, column);
-
-            //        if (!skipClear)
-            //        {
-            //            IOBoxes[row, column].Text = value;
-            //        }
-            //    }
-            //}
+            int row = 0;            
+            foreach (List<TextBox> textBoxesRow in IOBoxes)
+            {
+                if (row >= 5)
+                    break;
+                int column = 0;
+                foreach (TextBox textBox in textBoxesRow)
+                {
+                    if (column >= 5)
+                        break;
+                    textBox.Text = "";
+                    column++;
+                }
+                row++;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,7 +40,7 @@ namespace Voltofalle
         private void OnValidate(object sender, CancelEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            string regex = "[XB.1-3]";
+            string regex = "[XB#.1-3]";
 
             // If row or column input only match 0-10
             if (textBox.Name.Contains("row") || textBox.Name.Contains("column"))

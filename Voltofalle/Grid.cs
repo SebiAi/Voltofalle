@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +32,17 @@ namespace Voltofalle
                 rows.Add(axis);
             }
             return 0;
+        }
+
+        public void outputValues()
+        {
+            // Output all 7 rows
+            int i = 0;
+            foreach (Axis axis in rows)
+            {
+                axis.outputAxis(IOBoxes[i]);
+                i++;
+            }
         }
     }
 }

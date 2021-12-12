@@ -59,5 +59,27 @@ namespace Voltofalle
             }
             return 0;
         }
+
+        public void outputField(TextBox textBox)
+        {
+            switch (currentValue)
+            {
+                case Global.valueX:
+                    textBox.Text = "X";
+                    break;
+                case Global.valueB:
+                    textBox.Text = "B";
+                    break;
+                case Global.valueHashtag:
+                    textBox.Text = "#";
+                    break;
+                case Global.valueDot:
+                    textBox.Text = ".";
+                    break;
+                default:
+                    textBox.Text = currentValue.ToString();
+                    break;
+            }
+        }
     }
 }

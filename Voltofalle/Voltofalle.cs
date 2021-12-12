@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -119,7 +119,7 @@ namespace Voltofalle
             //    return;
 
             // Write textBoxes
-            WriteTextBoxes();
+            Voltofalle.outputValues();
 
             MessageBox.Show(this, "Done", Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +10,13 @@ namespace Voltofalle
     class Axis
     {
         public List<Field> fields;
+        public bool isInput;
 
-        public Axis()
+        public Axis(bool isInput)
         {
             // Initiate variables
             this.fields = new List<Field>();
+            this.isInput = isInput;
         }
 
         public int readAxis(List<TextBox> IOBoxesAxis)
@@ -23,7 +25,7 @@ namespace Voltofalle
             foreach (TextBox textBox in IOBoxesAxis)
             {
                 Field field = new Field();
-                if (field.readField(textBox, (i >= 5) ? true : false) != 0)
+                if (field.readField(textBox, (i >= 5 || isInput) ? true : false) != 0)
                 {
                     return 1;
                 }

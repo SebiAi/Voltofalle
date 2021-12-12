@@ -11,15 +11,18 @@ namespace Voltofalle
     {
         public int currentValue;
         public List<char> possibleValues;
+        public bool isInput;
 
         public Field()
         {
             this.possibleValues = new List<char>();
             this.currentValue = 0;
+            this.isInput = false;
         }
 
         public int readField(TextBox textBox, bool isInput)
         {
+            this.isInput = isInput;
             try
             {
                 // Try convert to number

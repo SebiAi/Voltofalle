@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,15 +21,17 @@ namespace Voltofalle
 
         public int readValues()
         {
+            int i = 0;
             // Read all 7 rows
             foreach (List<TextBox> IOBoxesRow in IOBoxes)
             {
-                Axis axis = new Axis();
+                Axis axis = new Axis((i >= 5) ? true : false);
                 if (axis.readAxis(IOBoxesRow) != 0)
                 {
                     return 1;
                 }
                 rows.Add(axis);
+                i++;
             }
             return 0;
         }

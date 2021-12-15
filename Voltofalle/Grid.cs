@@ -19,6 +19,7 @@ namespace Voltofalle
             this.rows = new List<Axis>();
         }
 
+        #region IO Operations
         public int readValues()
         {
             int i = 0;
@@ -46,14 +47,34 @@ namespace Voltofalle
                 i++;
             }
         }
+        #endregion
 
         public int calculate()
         {
+            int returnVal = 0;
+            bool rerunCalc = false;
+
             // Check if row/column is 1 or Bomb
             ProcessDeadRows();
-            return 0;
+
+            // Calculate fields
+            returnVal = ProcessSolving();
+            if (returnVal != 0 && returnVal != 2)
+                return returnVal;
+
+            if (returnVal == 2)
+                rerunCalc = true;
+
+            // Calculate next best possible move
+            // TODO: Implement calculation of next best possible move
+
+            if (rerunCalc)
+                returnVal = calculate();
+
+            return returnVal;
         }
 
+        #region Dead Rows
         private void ProcessDeadRows()
         {
             int columnCounter = 0;
@@ -80,6 +101,102 @@ namespace Voltofalle
                 axis.SetCurrentValueAxis();
             }
         }
+        #endregion
+
+        #region Solving
+        private int ProcessSolving()
+        {
+            bool foundValue = false;
+            int returnVal = 0;
+
+            int columnCounter = 0;
+            foreach (Axis row in rows)
+            {
+                if (row.isInput)
+                    continue;
+
+                // Check for row
+                returnVal = ProcessSolvingHelper(row);
+                if (returnVal != 0 && returnVal != 2)
+                    return returnVal;
+
+                // If could solve at least one set to true
+                if (returnVal == 2)
+                    foundValue = true;
+
+                // Check for column
+                Axis column = GetColumn(columnCounter);
+                returnVal = ProcessSolvingHelper(column);
+                if (returnVal != 0 && returnVal != 2)
+                    return returnVal;
+
+                // If could solve at least one set to true
+                if (returnVal == 2)
+                    foundValue = true;
+
+                columnCounter++;
+            }
+
+            // If could solve at least one return 2
+            if (foundValue)
+                return 2;
+
+            return 0;
+        }
+
+        private int ProcessSolvingHelper(Axis axis)
+        {
+            int returnVal = 0;
+            bool foundValue = false;
+
+            int deltaAxis = axis.GetPoints() + axis.GetBombs() - axis.CalculateSum();
+            // If bigger than 0 => not complete
+            if (deltaAxis > 0)
+            {
+                int sumUnknownFields = axis.CountUnknownFields();
+
+                if (sumUnknownFields == 0)
+                {
+                    MessageBox.Show("Input error!\r\n\r\nDid you input the right values?",
+                        Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 1;
+                }
+                if (sumUnknownFields == 1)
+                {
+                    // Basic solving
+                    returnVal = ProcessBasicSolving(axis, sumUnknownFields);
+                    if (returnVal != 0 && returnVal != 2)
+                        return returnVal;
+                    if (returnVal == 2)
+                        foundValue = true;
+                }
+                if (sumUnknownFields > 1)
+                {
+                    // Advanced solving
+                    // TODO: Implement advanced solving
+                }
+            }
+
+            if (foundValue)
+                returnVal = 2;
+
+            return returnVal;
+        }
+
+        private int ProcessBasicSolving(Axis axis, int value)
+        {
+            Field unknownField = axis.GetFirstUnknownField();
+            if (unknownField == null)
+            {
+                MessageBox.Show("This error should never be displayed.\r\n\r\n If you see this you are a wizard!",
+                    Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1;
+            }
+
+            unknownField.currentValue = value + 1;
+            return 2;
+        }
+        #endregion
 
         public Axis GetColumn(int n)
         {

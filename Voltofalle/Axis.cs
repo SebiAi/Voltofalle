@@ -97,5 +97,78 @@ namespace Voltofalle
                     field.currentValue = Global.valueB;
             }
         }
+
+        public int CountUnknownFields()
+        {
+            int sum = 0;
+            foreach (Field field in fields)
+            {
+                if (field.isInput)
+                    continue;
+                switch (field.currentValue)
+                {
+                    case 1:
+                        // Is considered known
+                        break;
+                    case 2:
+                        // Is considered known
+                        break;
+                    case 3:
+                        // Is considered known
+                        break;
+                    case Global.valueX:
+                        // Is considered known
+                        break;
+                    case Global.valueB:
+                        // Is considered known
+                        break;
+                    default:
+                        // Everything else is unknown [.#]
+                        sum++;
+                        break;
+                }
+            }
+            return sum;
+        }
+
+        public Field GetFirstUnknownField()
+        {
+            Field returnField = null;
+
+            foreach (Field field in fields)
+            {
+                if (field.isInput)
+                    continue;
+
+                switch (field.currentValue)
+                {
+                    case 1:
+                        // Is considered known
+                        break;
+                    case 2:
+                        // Is considered known
+                        break;
+                    case 3:
+                        // Is considered known
+                        break;
+                    case Global.valueX:
+                        // Is considered known
+                        break;
+                    case Global.valueB:
+                        // Is considered known
+                        break;
+                    default:
+                        // Everything else is unknown [.#]
+                        returnField = field;
+                        break;
+                }
+
+                // Break if we found the first unknown field
+                if (returnField != null)
+                    break;
+            }
+
+            return returnField;
+        }
     }
 }

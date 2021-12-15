@@ -35,6 +35,10 @@ namespace Voltofalle
             IOBoxes.Add(row6);
             List<TextBox> row7 = new List<TextBox>(); row7.Add(column1v); row7.Add(column2v); row7.Add(column3v); row7.Add(column4v); row7.Add(column5v);
             IOBoxes.Add(row7);
+
+#if DEBUG
+            DebugButton.Visible = true;
+#endif
         }        
 
         private void OnValidate(object sender, CancelEventArgs e)
@@ -270,6 +274,54 @@ namespace Voltofalle
                 }
                 row++;
             }
+        }
+
+        private void DebugButton_Click(object sender, EventArgs e)
+        {
+            // Inputs
+            row1p.Text = "8";
+            row1v.Text = "0";
+
+            row2p.Text = "1";
+            row2v.Text = "4";
+
+            row3p.Text = "4";
+            row3v.Text = "1";
+
+            row4p.Text = "6";
+            row4v.Text = "0";
+
+            row5p.Text = "6";
+            row5v.Text = "1";
+
+
+            column1p.Text = "6";
+            column1v.Text = "1";
+
+            column2p.Text = "3";
+            column2v.Text = "2";
+
+            column3p.Text = "6";
+            column3v.Text = "1";
+
+            column4p.Text = "4";
+            column4v.Text = "1";
+
+            column5p.Text = "6";
+            column5v.Text = "1";
+
+            // Outputs
+            grid11.Text = "1";
+            grid12.Text = "1";
+            grid13.Text = "2";
+            grid14.Text = "1";
+            grid15.Text = "3";
+
+            grid41.Text = "2";
+            grid42.Text = "1";
+            grid43.Text = "1";
+            grid44.Text = "1";
+            grid45.Text = "1";
         }
     }
 }

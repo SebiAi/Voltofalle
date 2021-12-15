@@ -79,6 +79,7 @@
             this.labelHelp = new System.Windows.Forms.Label();
             this.ClearAll = new System.Windows.Forms.Button();
             this.ClearOutput = new System.Windows.Forms.Button();
+            this.DebugButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // grid11
@@ -591,12 +592,24 @@
             this.ClearOutput.UseVisualStyleBackColor = true;
             this.ClearOutput.Click += new System.EventHandler(this.ClearOutput_Click);
             // 
+            // DebugButton
+            // 
+            this.DebugButton.Location = new System.Drawing.Point(247, 90);
+            this.DebugButton.Name = "DebugButton";
+            this.DebugButton.Size = new System.Drawing.Size(89, 29);
+            this.DebugButton.TabIndex = 51;
+            this.DebugButton.Text = "Insert Example";
+            this.DebugButton.UseVisualStyleBackColor = true;
+            this.DebugButton.Visible = false;
+            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.buttonCalc;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 280);
+            this.Controls.Add(this.DebugButton);
             this.Controls.Add(this.ClearOutput);
             this.Controls.Add(this.ClearAll);
             this.Controls.Add(this.labelHelp);
@@ -712,6 +725,7 @@
         private System.Windows.Forms.Label labelHelp;
         private System.Windows.Forms.Button ClearAll;
         private System.Windows.Forms.Button ClearOutput;
+        private System.Windows.Forms.Button DebugButton;
     }
 }
 

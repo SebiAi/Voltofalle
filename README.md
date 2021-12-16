@@ -6,7 +6,7 @@ The goal of this projekt is to make the best possible automatic solver for this 
 ## Features
 The following features are present (or planed):
 + [*DONE*] **Dead row detection**
-+ [*WIP*] **Basic solving (one unknown value in one row)**
++ [*DONE*] **Basic solving (one unknown value in one row)**
 + [*WIP*] **Advanced solving (solving as many fields as mathematically possible)**
 + [*WIP*] **When not fully mathematically solvable display the next best possible move**
 

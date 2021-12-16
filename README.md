@@ -10,6 +10,9 @@ The following features are present (or planed):
 + [*WIP*] **Advanced solving (solving as many fields as mathematically possible)**
 + [*WIP*] **When not fully mathematically solvable display the next best possible move**
 
+## Download
+You can find the latest download [here](https://github.com/SebiAi/Voltofalle/releases/latest) under `Assets`.
+
 ## Methods used
 To give a rough understanding of the concepts used, I will split them up into their respective topics.
 

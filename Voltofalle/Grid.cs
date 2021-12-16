@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -116,7 +116,7 @@ namespace Voltofalle
                     continue;
 
                 // Check for row
-                returnVal = ProcessSolvingHelper(row);
+                returnVal = ProcessSolvingHelper(row, $"{{Row: {columnCounter + 1}}}");
                 if (returnVal != 0 && returnVal != 2)
                     return returnVal;
 
@@ -126,7 +126,7 @@ namespace Voltofalle
 
                 // Check for column
                 Axis column = GetColumn(columnCounter);
-                returnVal = ProcessSolvingHelper(column);
+                returnVal = ProcessSolvingHelper(column, $"{{Column: {columnCounter + 1}}}");
                 if (returnVal != 0 && returnVal != 2)
                     return returnVal;
 
@@ -144,12 +144,19 @@ namespace Voltofalle
             return 0;
         }
 
-        private int ProcessSolvingHelper(Axis axis)
+        private int ProcessSolvingHelper(Axis axis, String errorMessage)
         {
             int returnVal = 0;
             bool foundValue = false;
 
             int deltaAxis = axis.GetPoints() + axis.GetBombs() - axis.CalculateSum();
+            if (deltaAxis < 0)
+            {
+                // Can't be right
+                MessageBox.Show($"Input error!\r\n\r\nDid you input the right values?\r\n{errorMessage}",
+                        Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1;
+            }
             // If bigger than 0 => not complete
             if (deltaAxis > 0)
             {
@@ -157,7 +164,7 @@ namespace Voltofalle
 
                 if (sumUnknownFields == 0)
                 {
-                    MessageBox.Show("Input error!\r\n\r\nDid you input the right values?",
+                    MessageBox.Show($"Input error!\r\n\r\nDid you input the right values?\r\n{errorMessage}",
                         Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return 1;
                 }

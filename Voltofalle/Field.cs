@@ -84,5 +84,12 @@ namespace Voltofalle
                     break;
             }
         }
+
+        public bool IsUnknown()
+        {
+            if (currentValue >= 1 && currentValue <= 3 || currentValue == Global.valueHashtag || currentValue == Global.valueB)
+                return false;
+            return true;
+        }
     }
 }

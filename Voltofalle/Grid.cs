@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -164,7 +164,7 @@ namespace Voltofalle
                 if (sumUnknownFields == 1)
                 {
                     // Basic solving
-                    returnVal = ProcessBasicSolving(axis, sumUnknownFields);
+                    returnVal = ProcessBasicSolving(axis, deltaAxis);
                     if (returnVal != 0 && returnVal != 2)
                         return returnVal;
                     if (returnVal == 2)

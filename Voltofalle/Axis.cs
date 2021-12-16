@@ -87,13 +87,13 @@ namespace Voltofalle
                 if (field.isInput)
                     continue;
                 // Set to valueX if bombs and points are not 0
-                if (field.currentValue == Global.valueDot && GetBombs() != 0 && GetPoints() != 0)
+                if (GetBombs() != 0 && GetPoints() != 0 && field.IsUnknown())
                     field.currentValue = Global.valueX;
                 // Set to valueHashtag if bombs is 0
-                else if (field.currentValue == Global.valueDot && GetBombs() == 0)
+                if (GetBombs() == 0 && field.IsUnknown())
                     field.currentValue = Global.valueHashtag;
                 // Set to valueB if points is 0
-                else if (field.currentValue == Global.valueDot && GetPoints() == 0)
+                if (GetPoints() == 0 && field.IsUnknown())
                     field.currentValue = Global.valueB;
             }
         }

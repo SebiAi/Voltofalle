@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,13 +92,13 @@ namespace Voltofalle
                 if (field.isInput)
                     continue;
                 // Set to valueX if bombs and points are not 0
-                if (GetBombs() != 0 && GetPoints() != 0 && field.IsUnknown())
+                if (GetBombs() != 0 && GetPoints() != 0 && field.IsUnknownV1())
                     field.currentValue = Global.valueX;
                 // Set to valueHashtag if bombs is 0
-                if (GetBombs() == 0 && field.IsUnknown())
+                if (GetBombs() == 0 && field.IsUnknownV1())
                     field.currentValue = Global.valueHashtag;
                 // Set to valueB if points is 0
-                if (GetPoints() == 0 && field.IsUnknown())
+                if (GetPoints() == 0 && field.IsUnknownV1())
                     field.currentValue = Global.valueB;
             }
         }
@@ -110,28 +110,9 @@ namespace Voltofalle
             {
                 if (field.isInput)
                     continue;
-                switch (field.currentValue)
-                {
-                    case 1:
-                        // Is considered known
-                        break;
-                    case 2:
-                        // Is considered known
-                        break;
-                    case 3:
-                        // Is considered known
-                        break;
-                    case Global.valueX:
-                        // Is considered known
-                        break;
-                    case Global.valueB:
-                        // Is considered known
-                        break;
-                    default:
-                        // Everything else is unknown [.#]
-                        sum++;
-                        break;
-                }
+
+                if (field.IsUnknownV2())
+                    sum++;
             }
             return sum;
         }
@@ -145,28 +126,8 @@ namespace Voltofalle
                 if (field.isInput)
                     continue;
 
-                switch (field.currentValue)
-                {
-                    case 1:
-                        // Is considered known
-                        break;
-                    case 2:
-                        // Is considered known
-                        break;
-                    case 3:
-                        // Is considered known
-                        break;
-                    case Global.valueX:
-                        // Is considered known
-                        break;
-                    case Global.valueB:
-                        // Is considered known
-                        break;
-                    default:
-                        // Everything else is unknown [.#]
-                        returnField = field;
-                        break;
-                }
+                if (field.IsUnknownV2())
+                    returnField = field;
 
                 // Break if we found the first unknown field
                 if (returnField != null)

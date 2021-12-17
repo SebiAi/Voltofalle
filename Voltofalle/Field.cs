@@ -88,11 +88,25 @@ namespace Voltofalle
             }
         }
 
-        public bool IsUnknown()
+        public bool IsUnknownV1()
         {
             if (currentValue >= 1 && currentValue <= 3 || currentValue == Global.valueHashtag || currentValue == Global.valueB)
                 return false;
             return true;
+        }
+
+        public bool IsUnknownV2()
+        {
+            if (currentValue >= 1 && currentValue <= 3 || currentValue == Global.valueB || currentValue == Global.valueX)
+                return false;
+            return true;
+        }
+
+        public bool IsUnknownV3()
+        {
+            if (currentValue == Global.valueDot)
+                return true;
+            return false;
         }
     }
 }

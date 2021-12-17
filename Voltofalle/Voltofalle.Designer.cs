@@ -554,7 +554,7 @@
             // 
             // buttonCalc
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(287, 241);
+            this.buttonCalc.Location = new System.Drawing.Point(285, 256);
             this.buttonCalc.Name = "buttonCalc";
             this.buttonCalc.Size = new System.Drawing.Size(75, 29);
             this.buttonCalc.TabIndex = 47;
@@ -567,14 +567,14 @@
             this.labelHelp.AutoSize = true;
             this.labelHelp.Location = new System.Drawing.Point(12, 207);
             this.labelHelp.Name = "labelHelp";
-            this.labelHelp.Size = new System.Drawing.Size(171, 65);
+            this.labelHelp.Size = new System.Drawing.Size(171, 78);
             this.labelHelp.TabIndex = 48;
             this.labelHelp.Text = "1-3 Numer\r\nX    1 or Bomb\r\nB     Bomb\r\n.      Unknown (more input needed)\r\n#     " +
-    "Not a Bomb [1-3]";
+    "Not a Bomb [1-3]\r\n?      Best next move";
             // 
             // ClearAll
             // 
-            this.ClearAll.Location = new System.Drawing.Point(206, 241);
+            this.ClearAll.Location = new System.Drawing.Point(204, 256);
             this.ClearAll.Name = "ClearAll";
             this.ClearAll.Size = new System.Drawing.Size(75, 29);
             this.ClearAll.TabIndex = 49;
@@ -584,7 +584,7 @@
             // 
             // ClearOutput
             // 
-            this.ClearOutput.Location = new System.Drawing.Point(206, 206);
+            this.ClearOutput.Location = new System.Drawing.Point(204, 221);
             this.ClearOutput.Name = "ClearOutput";
             this.ClearOutput.Size = new System.Drawing.Size(75, 29);
             this.ClearOutput.TabIndex = 50;
@@ -608,7 +608,7 @@
             this.AcceptButton = this.buttonCalc;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 280);
+            this.ClientSize = new System.Drawing.Size(372, 297);
             this.Controls.Add(this.DebugButton);
             this.Controls.Add(this.ClearOutput);
             this.Controls.Add(this.ClearAll);

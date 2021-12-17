@@ -11,6 +11,7 @@ namespace Voltofalle
         public const int valueX = 'X';
         public const int valueB = 'B';
         public const int valueHashtag = '#';
+        public const int valueQuestionmark = '?';
         public const int valueDot = '.';
 
         public const string messageBoxTitle = "Voltofalle - Calculator";

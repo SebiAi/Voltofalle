@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,6 +78,9 @@ namespace Voltofalle
                     break;
                 case Global.valueDot:
                     textBox.Text = ".";
+                    break;
+                case Global.valueQuestionmark:
+                    textBox.Text = "?";
                     break;
                 default:
                     textBox.Text = currentValue.ToString();

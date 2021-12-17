@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +10,15 @@ namespace Voltofalle
     class Field
     {
         public int currentValue;
-        public List<char> possibleValues;
+        public List<int> possibleValues;
+        public double bombPercentage;
         public bool isInput;
 
         public Field()
         {
-            this.possibleValues = new List<char>();
             this.currentValue = 0;
+            this.possibleValues = new List<int>();
+            this.bombPercentage = 1.0;
             this.isInput = false;
         }
 

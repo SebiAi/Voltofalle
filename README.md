@@ -8,7 +8,7 @@ The following features are present (or planed):
 + [*DONE*] **Dead row detection**
 + [*DONE*] **Basic solving (one unknown value in one row)**
 + [*WIP*] **Advanced solving (solving as many fields as mathematically possible)**
-+ [*WIP*] **When not fully mathematically solvable display the next best possible move**
++ [*DONE*] **When not fully mathematically solvable display the next best possible move**
 
 ## Download
 You can find the latest download [here](https://github.com/SebiAi/Voltofalle/releases/latest) under `Assets`.

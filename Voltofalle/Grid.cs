@@ -66,7 +66,7 @@ namespace Voltofalle
                 rerunCalc = true;
 
             // Calculate next best possible move
-            // TODO: Implement calculation of next best possible move
+            ProcessNextBestMove();
 
             if (rerunCalc)
                 returnVal = calculate();
@@ -205,6 +205,65 @@ namespace Voltofalle
         }
         #endregion
 
+        #region Next Best Move
+        private void ProcessNextBestMove()
+        {
+            // Get columns
+            List<Axis> columns = GetColumns();
+            List<Axis>.Enumerator columnsEnumerator = columns.GetEnumerator();
+            columnsEnumerator.MoveNext();
+
+            // Define List for later
+            List<Field> minBombPercentageFields = new List<Field>();
+            minBombPercentageFields.Add(new Field());
+
+            foreach (Axis row in rows)
+            {
+                if (row.isInput)
+                    continue;
+
+                // Figure out bombPercentages
+                foreach (Field field in row.fields)
+                {
+                    if (field.isInput)
+                        continue;
+
+                    // Calculate percentage of a bomb on current field
+                    field.bombPercentage = ((double)row.GetBombs() + columnsEnumerator.Current.GetBombs()) /
+                        (row.GetPoints() + columnsEnumerator.Current.GetPoints());
+
+                    // If a bomb is on this field set to 100%
+                    if (field.currentValue == Global.valueB)
+                        field.bombPercentage = 1.0;
+
+                    if (field.IsUnknownV3())
+                    {
+                        // Check if smaller than current smalles percent => clear list and add
+                        if (field.bombPercentage < minBombPercentageFields[0].bombPercentage)
+                        {
+                            minBombPercentageFields.Clear();
+                            minBombPercentageFields.Add(field);
+                        }
+                        // Check if equal => add to list
+                        if (field.bombPercentage == minBombPercentageFields[0].bombPercentage)
+                            minBombPercentageFields.Add(field);
+                    }
+
+                    columnsEnumerator.MoveNext();
+                }
+                columnsEnumerator = columns.GetEnumerator();
+                columnsEnumerator.MoveNext();
+            }
+            columnsEnumerator.Dispose();
+
+            // Fill all fields with valueQuestionmark
+            foreach (Field field in minBombPercentageFields)
+            {
+                field.currentValue = Global.valueQuestionmark;
+            }
+        }
+        #endregion
+
         public Axis GetColumn(int n)
         {
             Axis column = new Axis(false);
@@ -217,6 +276,18 @@ namespace Voltofalle
             }
 
             return column;
+        }
+
+        public List<Axis> GetColumns()
+        {
+            List<Axis> columns = new List<Axis>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                columns.Add(GetColumn(i));
+            }
+
+            return columns;
         }
     }
 }

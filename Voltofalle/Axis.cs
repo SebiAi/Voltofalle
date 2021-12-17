@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +64,11 @@ namespace Voltofalle
             {
                 if (field.isInput)
                     continue;
+
+                // If 0 bombs
+                if (GetBombs() == 0)
+                    return GetPoints();
+
                 switch (field.currentValue)
                 {
                     case 2:

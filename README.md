@@ -1,4 +1,6 @@
 # Voltofalle
+![image](https://user-images.githubusercontent.com/41116921/146749384-04baa3c6-c728-4124-b50e-9db5118d783e.png)
+
 ## General
 Voltofalle (*German*) or also called Voltobal Flip is a gambling game found in the gambling hall of Dukatia City and Prismania City in Pokemon Soul Silver and Pokemon Heart Gold.
 The goal of this project is to make the best possible automatic solver for this puzzle. For more info about the game look [here](https://www.bisafans.de/spiele/editionen/heartgold-soulsilver/voltofalle.php) (*German*).
@@ -9,6 +11,7 @@ The following features are present (or planed):
 + [*DONE*] **Basic solving (one unknown value in one row)**
 + [*WIP*] **Advanced solving (solving as many fields as mathematically possible)**
 + [*DONE*] **When not fully mathematically solvable display the next best possible move**
++ [*DONE*] **Proper tabing (TAB key) order**
 
 ## Download
 You can find the latest download [here](https://github.com/SebiAi/Voltofalle/releases/latest) under `Assets`.

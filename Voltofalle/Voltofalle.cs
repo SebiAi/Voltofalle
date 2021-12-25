@@ -123,7 +123,7 @@ namespace Voltofalle
                 return;
 
             // Write textBoxes
-            Voltofalle.outputValues();
+            //Voltofalle.outputValues();
 
             MessageBox.Show(this, "Done", Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -279,49 +279,49 @@ namespace Voltofalle
         private void DebugButton_Click(object sender, EventArgs e)
         {
             // Inputs
-            row1p.Text = "8";
-            row1v.Text = "0";
+            row1p.Text = "6";
+            row1v.Text = "1";
 
-            row2p.Text = "1";
-            row2v.Text = "4";
+            row2p.Text = "8";
+            row2v.Text = "1";
 
             row3p.Text = "4";
             row3v.Text = "1";
 
-            row4p.Text = "6";
-            row4v.Text = "0";
+            row4p.Text = "4";
+            row4v.Text = "2";
 
-            row5p.Text = "6";
-            row5v.Text = "1";
+            row5p.Text = "3";
+            row5v.Text = "2";
 
 
-            column1p.Text = "6";
-            column1v.Text = "1";
+            column1p.Text = "4";
+            column1v.Text = "3";
 
-            column2p.Text = "3";
-            column2v.Text = "2";
+            column2p.Text = "7";
+            column2v.Text = "1";
 
-            column3p.Text = "6";
-            column3v.Text = "1";
+            column3p.Text = "5";
+            column3v.Text = "2";
 
             column4p.Text = "4";
             column4v.Text = "1";
 
-            column5p.Text = "6";
-            column5v.Text = "1";
+            column5p.Text = "5";
+            column5v.Text = "0";
 
             // Outputs
-            grid11.Text = "1";
-            grid12.Text = "1";
-            grid13.Text = "2";
-            grid14.Text = "1";
-            grid15.Text = "3";
+            //grid11.Text = "1";
+            //grid12.Text = "1";
+            //grid13.Text = "2";
+            //grid14.Text = "1";
+            //grid15.Text = "3";
 
-            grid41.Text = "2";
-            grid42.Text = "1";
-            grid43.Text = "1";
-            grid44.Text = "1";
-            grid45.Text = "1";
+            //grid41.Text = "2";
+            //grid42.Text = "1";
+            //grid43.Text = "1";
+            //grid44.Text = "1";
+            //grid45.Text = "1";
         }
     }
 }

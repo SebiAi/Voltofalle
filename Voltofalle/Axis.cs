@@ -52,6 +52,18 @@ namespace Voltofalle
             return fields[COUNT_POINTS_INDEX].currentValue;
         }
 
+        public int GetRemainingPoints()
+        {
+            int remainingPoints = GetPoints();
+            foreach (Field field in fields)
+            {
+                if (field.isInput || field.IsFixUnknown())
+                    continue;
+                remainingPoints -= field.currentValue;
+            }
+            return remainingPoints;
+        }
+
         public int GetBombs()
         {
             return fields[COUNT_BOMBS_INDEX].currentValue;

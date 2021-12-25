@@ -110,5 +110,12 @@ namespace Voltofalle
                 return true;
             return false;
         }
+
+        public bool IsFixUnknown()
+        {
+            if (currentValue >= 1 && currentValue <= 3)
+                return false;
+            return true;
+        }
     }
 }

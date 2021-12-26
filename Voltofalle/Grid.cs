@@ -229,13 +229,15 @@ namespace Voltofalle
                         continue;
 
                     // Calculate percentage of a bomb on current field
-                    // TODO: GetRemainingBombs
-                    field.bombPercentage = ((double)row.GetBombs() + columnsEnumerator.Current.GetBombs()) /
-                        (row.GetRemainingPoints() + columnsEnumerator.Current.GetRemainingPoints());
+                    int potentialRemainingPoints = row.GetRemainingPoints() + columnsEnumerator.Current.GetRemainingPoints();                    
 
-                    // If a bomb is on this field set to 100%
-                    if (field.currentValue == Global.valueB)
+                        // If a bomb is on this field set to 100% or no Points remaining
+                    if (field.currentValue == Global.valueB || potentialRemainingPoints == 0)
                         field.bombPercentage = 1.0;
+                    else
+                        // Calculate
+                        field.bombPercentage = ((double)row.GetRemainingBombs() + columnsEnumerator.Current.GetRemainingBombs()) /
+                            (potentialRemainingPoints);
 
                     if (field.IsUnknownV3())
                     {
@@ -250,9 +252,9 @@ namespace Voltofalle
                         }
 
                         // Debug shizz
-                        int rowIndex = rows.FindIndex(x => x.Equals(row));
-                        int columnIndex = columns.FindIndex(x => x.Equals(columnsEnumerator.Current));
-                        IOBoxes[rowIndex][columnIndex].Text = ((1.0d - field.bombPercentage) * 100.0d).ToString();
+                        //int rowIndex = rows.FindIndex(x => x.Equals(row));
+                        //int columnIndex = columns.FindIndex(x => x.Equals(columnsEnumerator.Current));
+                        //IOBoxes[rowIndex][columnIndex].Text = ((1.0d - field.bombPercentage) * 100.0d).ToString();
                     }
 
                     columnsEnumerator.MoveNext();
@@ -263,10 +265,10 @@ namespace Voltofalle
             columnsEnumerator.Dispose();
 
             // Fill all fields with valueQuestionmark
-            //foreach (Field field in minBombPercentageFields)
-            //{
-            //    field.currentValue = Global.valueQuestionmark;
-            //}
+            foreach (Field field in minBombPercentageFields)
+            {
+                field.currentValue = Global.valueQuestionmark;
+            }
         }
         #endregion
 

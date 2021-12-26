@@ -59,7 +59,7 @@ namespace Voltofalle
             {
                 if (field.isInput || field.IsFixUnknown())
                     continue;
-                remainingPoints -= field.currentValue;
+                remainingPoints -= (field.currentValue == Global.valueB) ? 0 : field.currentValue;
             }
             return remainingPoints;
         }
@@ -67,6 +67,18 @@ namespace Voltofalle
         public int GetBombs()
         {
             return fields[COUNT_BOMBS_INDEX].currentValue;
+        }
+
+        public int GetRemainingBombs()
+        {
+            int remainingBombs = GetBombs();
+            foreach (Field field in fields)
+            {
+                if (field.isInput || field.currentValue != Global.valueB)
+                    continue;
+                remainingBombs -= 1;
+            }
+            return remainingBombs;
         }
 
         public int CalculateSum()

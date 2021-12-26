@@ -123,7 +123,7 @@ namespace Voltofalle
                 return;
 
             // Write textBoxes
-            //Voltofalle.outputValues();
+            Voltofalle.outputValues();
 
             MessageBox.Show(this, "Done", Global.messageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

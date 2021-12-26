@@ -92,7 +92,7 @@ namespace Voltofalle
 
         public bool IsUnknownV1()
         {
-            if (currentValue >= 1 && currentValue <= 3 || currentValue == Global.valueHashtag || currentValue == Global.valueB)
+            if (currentValue >= 1 && currentValue <= 3 || currentValue == Global.valueB || currentValue == Global.valueHashtag)
                 return false;
             return true;
         }
@@ -113,7 +113,7 @@ namespace Voltofalle
 
         public bool IsFixUnknown()
         {
-            if (currentValue >= 1 && currentValue <= 3)
+            if (currentValue >= 1 && currentValue <= 3 || currentValue == Global.valueB)
                 return false;
             return true;
         }
